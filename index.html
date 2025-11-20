@@ -3,277 +3,171 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ethan Lepareur - Développeur Java & Web</title>
-	<link rel="stylesheet" href="style.css">
+	<title>Ethan Lepareur - La Bibliothèque du Développeur</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="min-h-screen flex flex-col items-center text-gray-800 selection:bg-orange-200">
 
-	<header class="hero">
-		<div class="container hero-content">
-			<div class="profile-img-wrapper">
-				<img src="https://placehold.co/200x200/3E2D22/F5F0E8?text=EL" alt="Ethan Lepareur" class="profile-img">
-			</div>
-			<h1>Ethan Lepareur</h1>
-			<h2>Développeur Java & Web — Bachelor CDA au CESI — Alternant chez Capgemini</h2>
-			<p class="tagline">Entre développement, cybersécurité, animation et créativité.</p>
-			
-			<div class="hero-buttons">
-				<a href="#projets" class="btn btn-primary">Découvrir mes projets</a>
-				<a href="#contact" class="btn btn-outline">Me contacter</a>
-			</div>
-
-			<div class="scroll-indicator">
-				<i class="fa-solid fa-arrow-down"></i>
-			</div>
+	<header class="mt-12 mb-8 text-center z-10">
+		<div class="inline-block bg-black text-white px-4 py-1 text-sm font-bold tracking-widest mb-2 transform -rotate-1 shadow-lg">
+			PORTFOLIO VOL. 2025
 		</div>
+		<h1 class="text-5xl md:text-7xl font-manga text-[#2c2c2c] drop-shadow-sm">
+			ETHAN LEPAREUR
+		</h1>
+		<p class="text-lg text-gray-600 font-medium mt-2 font-serif italic">
+			"Le code est ma plume, l'écran est ma page."
+		</p>
 	</header>
 
-	<main>
-		<section id="about" class="section">
-			<h3 class="section-title">À propos</h3>
-			<div class="container about-grid">
-				<div class="about-visual">
-					<div class="image-placeholder big-portrait">
-						<img src="https://placehold.co/400x500/6C4F3D/F5F0E8?text=Photo+Portrait" alt="Portrait">
-					</div>
-				</div>
+	<main class="w-full max-w-5xl px-4 pb-20 flex flex-col gap-20 items-center perspective-1000">
+
+		<div class="shelf-container w-full relative group">
+			
+			<div class="absolute left-4 md:left-10 top-[-30px] h-[140%] w-8 metal-bracket flex flex-col justify-between py-4 rounded-sm z-0">
+				<div class="screw"></div><div class="screw"></div><div class="screw"></div>
+			</div>
+			<div class="absolute right-4 md:right-10 top-[-30px] h-[140%] w-8 metal-bracket flex flex-col justify-between py-4 rounded-sm z-0">
+				<div class="screw"></div><div class="screw"></div><div class="screw"></div>
+			</div>
+
+			<div class="relative z-10 flex justify-center items-end gap-2 md:gap-6 px-12 md:px-20 h-64 md:h-72">
 				
-				<div class="about-text">
-					<p>Je suis étudiant en Bachelor Concepteur Développeur d'Applications au CESI et alternant chez Capgemini, où je travaille sur des projets Java et Angular. Passionné par le développement logiciel, la cybersécurité et le design, j'aime créer des interfaces propres, modernes et fonctionnelles.</p>
-					<p>Mon parcours atypique — ancien artiste de cirque, formateur BAFA et porteur de la flamme olympique — me permet d'aborder les projets avec créativité, rigueur et une forte capacité d'adaptation.</p>
+				<div class="manga-spine w-12 md:w-16 h-[90%] bg-[#E65100] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#FF7D40]"
+					 onclick="openBook('about')">
+					<span class="text-xs font-bold opacity-70 transform rotate-180">VOL.01</span>
+					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4">NAISSANCE D'UN DEV</h2>
+					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
 				</div>
-			</div>
 
-			<div class="container">
-				<div class="info-card">
-					<div class="info-item">
-						<i class="fa-solid fa-location-dot"></i>
-						<div>
-							<strong>Cherbourg, France</strong>
-						</div>
-					</div>
-					<div class="info-item">
-						<i class="fa-solid fa-graduation-cap"></i>
-						<div>
-							<strong>Bachelor Concepteur Développeur d'Applications</strong>
-							<span>CESI</span>
-						</div>
-					</div>
-					<div class="info-item">
-						<i class="fa-solid fa-briefcase"></i>
-						<div>
-							<strong>Développeur Java/Angular</strong>
-							<span>Capgemini (Alternance)</span>
-						</div>
-					</div>
+				<div class="manga-spine w-12 md:w-16 h-[96%] bg-[#4E342E] text-[#F5F5F5] flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#6D4C41]"
+					 onclick="openBook('experience')">
+					<span class="text-xs font-bold opacity-70 transform rotate-180">VOL.02</span>
+					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4 text-yellow-500">CHAPITRES PRO</h2>
+					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
 				</div>
+
+				<div class="manga-spine w-14 md:w-20 h-[100%] bg-[#263238] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#455A64]"
+					 onclick="openBook('projects')">
+					<i class="fa-solid fa-code text-xl opacity-50 mb-2 transform rotate-90"></i>
+					<h2 class="text-xl md:text-3xl font-manga tracking-widest whitespace-nowrap text-cyan-400">ARCHIVES DU CODE</h2>
+					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
+				</div>
+
+				<div class="manga-spine w-12 md:w-16 h-[92%] bg-[#B71C1C] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#E53935]"
+					 onclick="openBook('skills')">
+					<span class="text-xs font-bold opacity-70 transform rotate-180">VOL.04</span>
+					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4">POUVOIRS & TECH</h2>
+					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
+				</div>
+
+				<div class="manga-spine w-12 md:w-16 h-[88%] bg-[#0077B5] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#42A5F5]"
+					 onclick="window.open('https://linkedin.com', '_blank')">
+					<i class="fa-brands fa-linkedin text-2xl mb-2 transform rotate-90"></i>
+					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap">RÉSEAU SOCIAL</h2>
+					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
+				</div>
+
 			</div>
-		</section>
 
-		<section id="projets" class="section">
-			<h3 class="section-title">Projets</h3>
-			<div class="container grid-2">
-				<article class="card">
-					<div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-					<h4>App React Native</h4>
-					<p>Application mobile complète avec une UI moderne, des features interactives et une optimisation pour Android.</p>
-					<div class="tags">
-						<span>React Native</span><span>Mobile</span><span>UI/UX</span>
-					</div>
-				</article>
-
-				<article class="card">
-					<div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
-					<h4>L'Âge de Psyché</h4>
-					<p>Jeu complet développé en Java avec un système de cartes avancé, une IHM soignée et une logique de jeu élaborée.</p>
-					<div class="tags">
-						<span>Java</span><span>Game Dev</span><span>IHM</span>
-					</div>
-				</article>
-
-				<article class="card">
-					<div class="card-icon"><i class="fa-solid fa-globe"></i></div>
-					<h4>Site vitrine artiste</h4>
-					<p>Site web responsive avec un design minimaliste, développé en HTML et CSS.</p>
-					<div class="tags">
-						<span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive</span>
-					</div>
-				</article>
-
-				<article class="card">
-					<div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-					<h4>PacketFence</h4>
-					<p>Projet cybersécurité incluant la mise en réseau, le contrôle d'accès et la documentation technique complète.</p>
-					<div class="tags">
-						<span>Cybersécurité</span><span>Réseau</span><span>NAC</span>
-					</div>
-				</article>
+			<div class="h-8 w-full shelf-plank z-20 relative">
+				<div class="shelf-shadow"></div>
 			</div>
-		</section>
+		</div>
 
-		<section id="experience" class="section">
-			<h3 class="section-title">Expériences</h3>
-			<div class="container grid-3">
+		<div class="shelf-container w-[90%] md:w-[80%] relative mt-10">
+			 
+			<div class="absolute left-4 md:left-16 top-[-50px] h-[150%] w-8 metal-bracket flex flex-col justify-between py-4 rounded-sm z-0 opacity-90">
+				<div class="screw"></div><div class="screw"></div><div class="screw"></div>
+			</div>
+			<div class="absolute right-4 md:right-16 top-[-50px] h-[150%] w-8 metal-bracket flex flex-col justify-between py-4 rounded-sm z-0 opacity-90">
+				<div class="screw"></div><div class="screw"></div><div class="screw"></div>
+			</div>
+
+			<div class="relative z-10 flex justify-center items-end gap-4 md:gap-8 px-12 h-56 md:h-64">
 				
-				<article class="card">
-					<div class="card-icon square"><i class="fa-solid fa-code"></i></div>
-					<h4>Alternance Capgemini</h4>
-					<span class="subtitle">Java / Angular</span>
-					<ul>
-						<li>Développement JAVA et Angular</li>
-						<li>Participation au cycle complet : analyse, dev, tests, intégration</li>
-						<li>Travail en équipe agile</li>
-					</ul>
-				</article>
-
-				<article class="card">
-					<div class="card-icon square"><i class="fa-solid fa-graduation-cap"></i></div>
-					<h4>Bachelor CDA</h4>
-					<span class="subtitle">CESI</span>
-					<ul>
-						<li>Architecture logicielle</li>
-						<li>Développement web & mobile</li>
-						<li>Gestion de projets / méthodes agiles</li>
-						<li>Bases en cybersécurité</li>
-					</ul>
-				</article>
-
-				<article class="card">
-					<div class="card-icon square"><i class="fa-solid fa-shield-virus"></i></div>
-					<h4>Stage Cybersécurité</h4>
-					<span class="subtitle">PacketFence</span>
-					<ul>
-						<li>Installation et configuration d'un NAC</li>
-						<li>Sécurisation réseau d'un hôpital</li>
-						<li>Rédaction de documentation technique</li>
-					</ul>
-				</article>
-
-				<article class="card">
-					<div class="card-icon square"><i class="fa-solid fa-users"></i></div>
-					<h4>BAFA & Formateur</h4>
-					<span class="subtitle">Animation</span>
-					<ul>
-						<li>Gestion de groupes en autonomie</li>
-						<li>Animation de sessions théoriques</li>
-						<li>Organisation de projets et grands jeux</li>
-					</ul>
-				</article>
-
-				<article class="card card-dark">
-					<div class="card-icon square dark-icon"><i class="fa-solid fa-fire"></i></div>
-					<h4>Porteur de la Flamme Olympique</h4>
-					<span class="subtitle">Granville – 31 mai 2024</span>
-					<ul>
-						<li>Relais officiel</li>
-						<li>Sélection Coca-Cola</li>
-						<li>Expérience emblématique, forte mise en avant</li>
-					</ul>
-				</article>
-
-				<article class="card">
-					<div class="card-icon square"><i class="fa-regular fa-star"></i></div>
-					<h4>Ancien artiste de cirque</h4>
-					<span class="subtitle">Performances</span>
-					<ul>
-						<li>Discipline, créativité, gestion du stress</li>
-						<li>Compétences humaines valorisables en entreprise</li>
-					</ul>
-				</article>
-
-			</div>
-		</section>
-
-		<section id="skills" class="section">
-			<h3 class="section-title">Compétences</h3>
-			<div class="container grid-3">
-				<article class="card card-center">
-					<div class="card-icon large"><i class="fa-solid fa-code"></i></div>
-					<h4>Langages</h4>
-					<ul class="skill-list">
-						<li>Java</li>
-						<li>Angular</li>
-						<li>JavaScript</li>
-						<li>HTML / CSS</li>
-						<li>SQL</li>
-						<li>React Native</li>
-					</ul>
-				</article>
-
-				<article class="card card-center">
-					<div class="card-icon large"><i class="fa-solid fa-wrench"></i></div>
-					<h4>Outils</h4>
-					<ul class="skill-list">
-						<li>GitHub</li>
-						<li>VSCode</li>
-						<li>Figma</li>
-						<li>VirtualBox</li>
-					</ul>
-				</article>
-
-				<article class="card card-center">
-					<div class="card-icon large"><i class="fa-solid fa-user-group"></i></div>
-					<h4>Soft Skills</h4>
-					<ul class="skill-list">
-						<li>Esprit d'équipe</li>
-						<li>Pédagogie (BAFA)</li>
-						<li>Créativité (cirque)</li>
-						<li>Adaptabilité</li>
-						<li>Communication</li>
-					</ul>
-				</article>
-			</div>
-		</section>
-
-		<section id="contact" class="section">
-			<h3 class="section-title">Contact</h3>
-			<div class="container contact-grid">
-				
-				<div class="contact-info">
-					<p class="contact-intro">N'hésitez pas à me contacter pour discuter de projets, d'opportunités ou simplement échanger sur le développement et la tech.</p>
-					
-					<div class="contact-card">
-						<div class="icon-box"><i class="fa-regular fa-envelope"></i></div>
-						<div>
-							<span class="label">Email</span>
-							<div class="value"></div>
-								<a href="mailto:ethan.lepareur@gmail.com" aria-label="Envoyer un email à ethan.lepareur@gmail.com">ethan.lepareur [at] gmail.com</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="contact-card">
-						<div class="icon-box"><i class="fa-solid fa-phone"></i></div>
-						<div>
-							<span class="label">Téléphone</span>
-							<div class="value">+33 6 36 12 51 48</div>
-						</div>
-					</div>
-
-					<div class="contact-card">
-						<div class="icon-box"><i class="fa-brands fa-linkedin-in"></i></div>
-						<div>
-							<span class="label">LinkedIn</span>
-							<div class="value">
-								<a href="https://www.linkedin.com/in/ethan-lepareur-564827334/" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le profil LinkedIn d'Ethan Lepareur">Ethan Lepareur</a>
-							</div>
-						</div>
-					</div>
+				<div class="manga-spine w-14 h-[95%] bg-[#FFD700] text-[#4A148C] flex flex-col items-center justify-between py-4 rounded-sm border-l border-yellow-300 hover:translate-y-[-5px] group" title="Mon manga préféré pour le style artistique !">
+					<span class="text-[10px] font-bold border border-purple-900 px-1 transform rotate-90 mt-2">HIROHIKO ARAKI</span>
+					<h2 class="text-2xl font-manga tracking-tighter whitespace-nowrap font-black">JOJO'S BIZARRE</h2>
+					<div class="w-full text-center mb-2"><i class="fa-solid fa-star text-purple-800"></i></div>
 				</div>
+
+				<div class="manga-spine w-14 h-[92%] bg-[#3E2723] text-[#D7CCC8] flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#5D4037] hover:translate-y-[-5px]" title="Une histoire de rédemption incroyable.">
+					<span class="text-[10px] font-bold opacity-70 transform rotate-90 mt-2">MAKOTO YUKIMURA</span>
+					<h2 class="text-xl font-manga tracking-widest whitespace-nowrap uppercase">Vinland Saga</h2>
+					<div class="text-xs transform rotate-90 mb-4">VOL. 12</div>
+				</div>
+
+				<div class="manga-spine w-14 h-[90%] bg-[#2E7D32] text-[#E8F5E9] flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#4CAF50] hover:translate-y-[-5px]" title="Le meilleur système de magie (Nen).">
+					<span class="text-[10px] font-bold opacity-70 transform rotate-90 mt-2">TOGASHI</span>
+					<h2 class="text-xl font-manga tracking-widest whitespace-nowrap font-bold">HUNTER x HUNTER</h2>
+					<div class="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center mb-2 transform rotate-90"><span class="text-xs">X</span></div>
+				</div>
+
+				<div class="manga-spine w-14 h-[94%] bg-[#FF6F00] text-[#FFF8E1] flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#FF8F00] hover:translate-y-[-5px]" title="Le classique indémodable.">
+					<span class="text-[10px] font-bold opacity-70 transform rotate-90 mt-2">TORIYAMA</span>
+					<h2 class="text-2xl font-manga tracking-tighter whitespace-nowrap font-black italic">DRAGON BALL Z</h2>
+					<div class="text-xl font-bold mb-2 transform rotate-90">Z</div>
+				</div>
+
 			</div>
-		</section>
+
+			<div class="h-8 w-full shelf-plank z-20 relative">
+				<div class="shelf-shadow"></div>
+			</div>
+		</div>
+
+		<div class="text-gray-400 text-sm mt-4 font-serif italic">
+			* Cliquez sur les tomes de l'étagère du haut pour lire leur contenu.
+		</div>
+
 	</main>
 
-	<footer>
-		<div class="container footer-content">
-			<p>© 2025 Ethan Lepareur. Tous droits réservés.</p>
-			<p>Développeur Java & Web</p>
-		</div>
-	</footer>
+	<div id="reading-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4 opacity-0 transition-opacity duration-500">
+		
+		<div id="modal-content" class="bg-white w-full max-w-4xl h-[85vh] md:h-[80vh] rounded-r-lg shadow-2xl flex flex-col md:flex-row overflow-hidden transform scale-95 transition-transform duration-500 relative border-l-8 border-l-gray-800">
+			
+			<button onclick="closeBook()" class="absolute top-4 right-4 z-50 bg-black text-white w-10 h-10 rounded-full hover:bg-red-600 transition flex items-center justify-center shadow-lg">
+				<i class="fa-solid fa-times"></i>
+			</button>
 
+			<div class="hidden md:flex w-1/3 bg-gray-900 text-white flex-col justify-center items-center p-8 relative overflow-hidden">
+				<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+				
+				<h3 id="modal-spine-title" class="text-5xl font-manga absolute -left-12 bottom-20 transform -rotate-90 text-gray-700 whitespace-nowrap">CHAPITRE 01</h3>
+				<div id="modal-icon" class="text-8xl mb-6 text-orange-500 animate-float">
+					<i class="fa-solid fa-user-ninja"></i>
+				</div>
+				<h2 id="modal-title-left" class="text-3xl font-bold text-center relative z-10 uppercase tracking-wider">À Propos</h2>
+				<div class="mt-8 w-16 h-1 bg-orange-500"></div>
+			</div>
+
+			<div class="w-full md:w-2/3 manga-page p-8 md:p-12 overflow-y-auto manga-content relative">
+				
+				<div class="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/10 to-transparent pointer-events-none"></div>
+
+				<div class="flex justify-between items-center border-b-2 border-black pb-4 mb-8">
+					<span id="modal-chapter" class="font-bold font-manga text-xl text-gray-400">CHAPITRE 1</span>
+					<span class="text-xs font-mono text-gray-500">ETHAN_PORTFOLIO_V1.0</span>
+				</div>
+
+				<div id="dynamic-content" class="prose prose-lg max-w-none text-gray-800 font-serif leading-relaxed">
+				</div>
+
+				<div class="mt-12 pt-8 border-t border-gray-300 flex justify-between text-sm font-bold text-gray-400 uppercase tracking-widest">
+					<span class="cursor-pointer hover:text-black" onclick="closeBook()">← Retour à l'étagère</span>
+					<span>Page <span id="page-num">01</span></span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="script.js"></script>
 </body>
 </html>
