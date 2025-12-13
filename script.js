@@ -8,7 +8,7 @@ const libraryData = {
 		content: `
 			<h1 class="text-4xl font-black mb-6 uppercase font-manga">L'Origine de l'Histoire</h1>
 			<p class="mb-4 first-letter:text-5xl first-letter:font-bold first-letter:mr-2 first-letter:float-left">
-				Je m'appelle [Ton Prénom], et mon aventure ne fait que commencer. Forgé par le code, je vise désormais la structure qui le soutient.
+				Je m'appelle Ethan Lepareur, et mon aventure ne fait que commencer. Forgé par le code, je vise désormais la structure qui le soutient.
 			</p>
 			<p class="mb-6">
 				Actuellement en fin de Bachelor CDA au <strong>CESI</strong> et aguerri par une alternance chez <strong>Capgemini</strong>, je dispose d'un socle technique solide. Mon style de combat ? Une maîtrise précise de <strong>Java et Angular</strong>, alliant rigueur backend et fluidité frontend.
@@ -21,7 +21,7 @@ const libraryData = {
 			<h3 class="text-2xl font-bold mt-8 mb-4 font-manga">Ma Quête Actuelle</h3>
 			<ul class="list-disc list-inside space-y-2 marker:text-orange-500">
 				<li>Évoluer de la production de code vers la <strong>conception logicielle</strong>.</li>
-				<li>Intégrer le Mastère Manager en Architecture sur <strong>Bordeaux</strong>.</li>
+				<li>Intégrer le Mastère Manager en Architecture.</li>
 				<li>Rejoindre une nouvelle guilde (entreprise) pour des défis techniques ambitieux.</li>
 			</ul>
 		`
