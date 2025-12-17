@@ -13,14 +13,22 @@
 </head>
 <body class="min-h-screen flex flex-col items-center text-gray-800 selection:bg-orange-200">
 
-	<header class="mt-12 mb-8 text-center z-10">
+	<header class="mt-12 mb-8 text-center z-10 relative w-full max-w-5xl px-4">
+		<div class="absolute top-0 right-4 md:right-0 z-50">
+			<label class="relative inline-flex items-center cursor-pointer group">
+				<input type="checkbox" id="lang-toggle" class="sr-only peer">
+				<div class="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-orange-600 border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]"></div>
+				<span class="ml-3 text-sm font-bold font-manga tracking-widest text-gray-900 group-hover:text-orange-600 transition-colors" id="lang-label">FR</span>
+			</label>
+		</div>
+
 		<div class="inline-block bg-black text-white px-4 py-1 text-sm font-bold tracking-widest mb-2 transform -rotate-1 shadow-lg">
 			PORTFOLIO VOL. 2025
 		</div>
 		<h1 class="text-5xl md:text-7xl font-manga text-[#2c2c2c] drop-shadow-sm">
 			ETHAN LEPAREUR
 		</h1>
-		<p class="text-lg text-gray-600 font-medium mt-2 font-serif italic">
+		<p class="text-lg text-gray-600 font-medium mt-2 font-serif italic" data-i18n="header_quote">
 			"Le code est ma plume, l'écran est ma page."
 		</p>
 	</header>
@@ -41,40 +49,40 @@
 				<div class="manga-spine w-12 md:w-16 h-[90%] bg-[#E65100] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#FF7D40]"
 					 onclick="openBook('about')">
 					<span class="text-xs font-bold opacity-70 transform rotate-180">VOL.01</span>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4">NAISSANCE D'UN DEV</h2>
+					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4" data-i18n="spine_about">NAISSANCE D'UN DEV</h2>
 					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
 				</div>
 
 				<div class="manga-spine w-12 md:w-16 h-[96%] bg-[#4E342E] text-[#F5F5F5] flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#6D4C41]"
 					 onclick="openBook('experience')">
 					<span class="text-xs font-bold opacity-70 transform rotate-180">VOL.02</span>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4 text-yellow-500">CHAPITRES PRO</h2>
+					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4 text-yellow-500" data-i18n="spine_exp">CHAPITRES PRO</h2>
 					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
 				</div>
 
 				<div class="manga-spine w-14 md:w-20 h-[100%] bg-[#263238] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#455A64]"
 					 onclick="openBook('projects')">
 					<i class="fa-solid fa-code text-xl opacity-50 mb-2 transform rotate-90"></i>
-					<h2 class="text-xl md:text-3xl font-manga tracking-widest whitespace-nowrap text-cyan-400">ARCHIVES DU CODE</h2>
+					<h2 class="text-xl md:text-3xl font-manga tracking-widest whitespace-nowrap text-cyan-400" data-i18n="spine_projects">ARCHIVES DU CODE</h2>
 					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
 				</div>
 
 				<div class="manga-spine w-12 md:w-16 h-[92%] bg-[#B71C1C] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#E53935]"
 					 onclick="openBook('skills')">
 					<span class="text-xs font-bold opacity-70 transform rotate-180">VOL.04</span>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4">POUVOIRS & TECH</h2>
+					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4" data-i18n="spine_skills">POUVOIRS & TECH</h2>
 					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
 				</div>
 
 				<div class="manga-spine w-12 md:w-16 h-[88%] bg-[#0077B5] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#42A5F5]"
 					 onclick="window.open('https://linkedin.com', '_blank')">
 					<i class="fa-brands fa-linkedin text-2xl mb-2 transform rotate-90"></i>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap">RÉSEAU SOCIAL</h2>
+					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap" data-i18n="spine_social">RÉSEAU SOCIAL</h2>
 					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
 				</div>
 
 				<div class="manga-spine w-12 md:w-16 h-[94%] bg-[#171515] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#333333] cursor-pointer hover:-translate-y-2 transition-transform duration-300"
-					onclick="window.open('https://github.com/Tatanelprr', '_blank')">
+					 onclick="window.open('https://github.com/Tatanelprr', '_blank')">
 					<i class="fa-brands fa-github text-2xl mb-2 transform rotate-90"></i>
 					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap">GITHUB</h2>
 					<div class="w-full px-2 opacity-80"><div class="barcode h-8 w-full opacity-50"></div></div>
@@ -137,7 +145,7 @@
 			</div>
 		</div>
 
-		<div class="text-gray-400 text-sm mt-4 font-serif italic">
+		<div class="text-gray-400 text-sm mt-4 font-serif italic" data-i18n="footer_instruction">
 			* Cliquez sur les tomes de l'étagère du haut pour lire leur contenu.
 		</div>
 
@@ -175,8 +183,8 @@
 				</div>
 
 				<div class="mt-12 pt-8 border-t border-gray-300 flex justify-between text-sm font-bold text-gray-400 uppercase tracking-widest">
-					<span class="cursor-pointer hover:text-black" onclick="closeBook()">← Retour à l'étagère</span>
-					<span>Page <span id="page-num">01</span></span>
+					<span class="cursor-pointer hover:text-black" onclick="closeBook()" data-i18n="modal_back">← Retour à l'étagère</span>
+					<span><span data-i18n="modal_page">Page</span> <span id="page-num">01</span></span>
 				</div>
 			</div>
 
