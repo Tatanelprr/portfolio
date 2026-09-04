@@ -1,235 +1,374 @@
+/* ═══════════════════════════════════════════════════════════
+   MANGA LIBRARY — Atmosphere & Visual System
+   ═══════════════════════════════════════════════════════════ */
+
 :root {
-	--wall-color: #EDE5D9;
-	--wood-dark: #3E2723;
-	--wood-light: #5D4037;
-	--metal-dark: #1a1a1a;
-	--shadow-soft: rgba(0, 0, 0, 0.3);
-	--shadow-deep: rgba(0, 0, 0, 0.5);
+  --bg:           #08050300;
+  --wood-dark:    #1E0B03;
+  --wood-mid:     #3D1A08;
+  --wood-light:   #6B3015;
+  --amber:        #FFB347;
+  --cream:        #F0E6C8;
+  --cream-dim:    #9a8a72;
+  --shadow:       rgba(0,0,0,0.95);
 }
 
+/* ── Room ──────────────────────────────────────────────────── */
 body {
-	background-color: var(--wall-color);
-	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-	font-family: 'Noto Sans JP', sans-serif;
-	overflow-x: hidden;
+  background-color: #080401;
+  /* Vertical wood panelling */
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 110px,
+      rgba(0,0,0,0.12) 110px, rgba(0,0,0,0.12) 112px,
+      transparent 112px, transparent 200px,
+      rgba(255,255,255,0.015) 200px, rgba(255,255,255,0.015) 201px
+    ),
+    /* Horizontal panel seams */
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px, transparent 280px,
+      rgba(0,0,0,0.08) 280px, rgba(0,0,0,0.08) 282px
+    );
+  color: var(--cream-dim);
+  font-family: 'Noto Sans JP', sans-serif;
+  overflow-x: hidden;
 }
 
+/* ── Fixed atmosphere (spotlight + vignette) ───────────────── */
+.library-atmo {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lamp-beam {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100%; max-width: 1000px; height: 100%;
+  background:
+    /* Main warm cone from above */
+    radial-gradient(ellipse 55% 50% at 50% -5%,
+      rgba(255, 185, 70, 0.18) 0%,
+      rgba(255, 160, 50, 0.09) 35%,
+      rgba(255, 130, 30, 0.03) 55%,
+      transparent 70%
+    );
+  animation: flicker 9s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%,100% { opacity: 1; }
+  88%      { opacity: 1; }
+  89%      { opacity: 0.88; }
+  90%      { opacity: 1; }
+  95%      { opacity: 0.94; }
+  96%      { opacity: 1; }
+}
+
+.vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(
+    ellipse 95% 95% at 50% 50%,
+    transparent 35%,
+    rgba(0,0,0,0.55) 75%,
+    rgba(0,0,0,0.85) 100%
+  );
+}
+
+/* ── Dust particles ────────────────────────────────────────── */
+.dust {
+  position: absolute;
+  left: var(--x);
+  top: var(--top, 80%);
+  width: var(--size, 2px);
+  height: var(--size, 2px);
+  border-radius: 50%;
+  background: rgba(255, 210, 130, 0.7);
+  animation: drift var(--dur, 10s) var(--delay, 0s) ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%   { transform: translate(0, 0);         opacity: 0; }
+  8%   { opacity: 0.7; }
+  50%  { transform: translate(var(--dx, 12px), -45vh); opacity: 0.3; }
+  92%  { opacity: 0.05; }
+  100% { transform: translate(var(--dx2, -8px), -90vh); opacity: 0; }
+}
+
+/* ── Header typography ─────────────────────────────────────── */
+.library-title {
+  color: var(--cream);
+  text-shadow:
+    0 0 60px rgba(255, 185, 70, 0.25),
+    0 0 20px rgba(255, 150, 40, 0.15),
+    0 3px 8px rgba(0, 0, 0, 0.9);
+}
+
+.library-quote {
+  color: #7a6a52;
+  font-style: italic;
+}
+
+.library-kicker {
+  background: linear-gradient(90deg, #2a1505, #3d1f08);
+  color: #c49a4a;
+  border: 1px solid #4a2a08;
+  letter-spacing: .18em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,180,60,0.1);
+}
+
+.lang-label-dark { color: #9a8060 !important; }
+
+/* ── Floor reflection below shelves ───────────────────────── */
+.floor-reflection {
+  width: 80%;
+  height: 30px;
+  margin: 0 auto;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(255, 160, 50, 0.07) 0%,
+    transparent 70%
+  );
+  filter: blur(4px);
+}
+
+/* ── Shelf plank ───────────────────────────────────────────── */
 .shelf-plank {
-	background: linear-gradient(180deg, #5D4037 0%, #3E2723 100%);
-	box-shadow: 
-		0 10px 20px var(--shadow-deep),
-		inset 0 2px 5px rgba(255,255,255,0.1);
-	position: relative;
-	border-radius: 2px;
-}
-
-.shelf-plank::before {
-	content: '';
-	position: absolute;
-	top: 0; left: 0; right: 0; bottom: 0;
-	background: repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(0,0,0,0.1) 52px, transparent 55px);
-	opacity: 0.3;
-	pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 14px,
+      rgba(0,0,0,0.06) 14px, rgba(0,0,0,0.06) 15px
+    ),
+    linear-gradient(180deg,
+      #7A3E1A 0%,
+      #5C2A0E 15%,
+      #3D1A06 50%,
+      #280F02 85%,
+      #1A0801 100%
+    );
+  box-shadow:
+    0 14px 35px rgba(0,0,0,0.98),
+    0 5px 10px rgba(0,0,0,0.8),
+    inset 0 2px 3px rgba(255,255,255,0.06),
+    inset 0 -1px 2px rgba(0,0,0,0.6);
+  position: relative;
+  border-radius: 1px;
 }
 
 .shelf-shadow {
-	position: absolute;
-	bottom: -20px;
-	left: 2%;
-	width: 96%;
-	height: 20px;
-	background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
-	z-index: -1;
+  position: absolute;
+  bottom: -18px; left: 3%; width: 94%; height: 18px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.75) 0%, transparent 70%);
+  z-index: -1;
 }
 
+/* ── Metal brackets ────────────────────────────────────────── */
 .metal-bracket {
-	background: linear-gradient(90deg, #2c2c2c, #1a1a1a 40%, #000 100%);
-	box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
-	position: relative;
+  background: linear-gradient(90deg,
+    #0d0d0d 0%, #1a1a1a 25%, #222 50%, #111 75%, #000 100%
+  );
+  box-shadow: 3px 5px 12px rgba(0,0,0,0.9), inset 1px 0 1px rgba(255,255,255,0.03);
 }
 
 .screw {
-	width: 8px;
-	height: 8px;
-	background: radial-gradient(circle, #555 0%, #111 100%);
-	border-radius: 50%;
-	margin: 0 auto;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  width: 8px; height: 8px;
+  background: radial-gradient(circle at 35% 35%, #3a3a3a, #060606);
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.95), inset 0 1px 1px rgba(255,255,255,0.04);
 }
 
+/* ── Manga spine ───────────────────────────────────────────── */
 .manga-spine {
-	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-	transform-origin: bottom center;
-	position: relative;
-	border-top: 3px solid #f0f0f0;
-	box-shadow: 
-		-2px 0 4px rgba(0,0,0,0.3),
-		4px 5px 10px rgba(0,0,0,0.4);
-	cursor: pointer;
-	writing-mode: vertical-rl;
-	text-orientation: mixed;
+  transform-origin: bottom center;
+  position: relative;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  border-top: 2px solid rgba(255,255,255,0.12);
+  /* Spine cloth texture */
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0px, transparent 4px,
+    rgba(0,0,0,0.06) 4px, rgba(0,0,0,0.06) 5px
+  );
+  box-shadow:
+    -3px 0 6px rgba(0,0,0,0.6),
+    5px 10px 25px rgba(0,0,0,0.8),
+    inset 1px 0 0 rgba(255,255,255,0.06);
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.35s ease,
+              filter 0.35s ease;
 }
 
-.manga-spine:hover {
-	transform: scale(1.05) translateY(-10px) rotate(-2deg);
-	z-index: 10;
-	box-shadow: 
-		-5px 0 10px rgba(0,0,0,0.3),
-		10px 20px 20px rgba(0,0,0,0.5);
-}
-
+/* Spine highlight line */
 .manga-spine::after {
-	content: '';
-	position: absolute;
-	top: 0; left: 0; bottom: 0;
-	width: 4px;
-	background: linear-gradient(90deg, rgba(255,255,255,0.3), transparent);
-	opacity: 0.4;
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.18), transparent);
 }
 
+/* Pull-off-shelf effect: 3D perspective rotation + translate */
+.manga-spine:hover {
+  transform: perspective(550px) rotateY(-22deg) translateX(-12px) translateY(-16px);
+  z-index: 20;
+  box-shadow:
+    -6px 0 12px rgba(0,0,0,0.5),
+    15px 30px 50px rgba(0,0,0,0.95),
+    0 0 25px rgba(255, 160, 50, 0.12);
+  filter: brightness(1.15);
+}
+
+/* ── Barcode ───────────────────────────────────────────────── */
 .barcode {
-	background: repeating-linear-gradient(
-		180deg,
-		#000,
-		#000 2px,
-		transparent 2px,
-		transparent 4px
-	);
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0,0,0,0.85), rgba(0,0,0,0.85) 2px,
+    transparent 2px, transparent 4px
+  );
 }
 
+/* ── Reading modal overlay ─────────────────────────────────── */
 .modal-overlay {
-	backdrop-filter: blur(8px);
-	background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(14px);
+  background-color: rgba(0, 0, 0, 0.82);
 }
 
+/* ── Modal sidebar (dark book panel) ──────────────────────── */
+.manga-sidebar {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 40px,
+      rgba(0,0,0,0.08) 40px, rgba(0,0,0,0.08) 41px
+    ),
+    linear-gradient(135deg, #130c04 0%, #0a0602 100%);
+  border-right: 1px solid rgba(255,160,50,0.08);
+}
+
+/* ── Modal reading page ────────────────────────────────────── */
 .manga-page {
-	background-color: #FDFBF7;
-	background-image: radial-gradient(#d4c5b0 1px, transparent 1px);
-	background-size: 20px 20px;
-	box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  background-color: #FAF5EC;
+  background-image:
+    /* Subtle dot grid */
+    radial-gradient(rgba(160, 140, 110, 0.25) 1px, transparent 1px),
+    /* Very faint horizontal lines like aged paper */
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px, transparent 27px,
+      rgba(180, 160, 120, 0.07) 27px, rgba(180, 160, 120, 0.07) 28px
+    );
+  background-size: 18px 18px, 100% 28px;
 }
 
-.manga-content::-webkit-scrollbar {
-	width: 6px;
+/* Binding shadow on the left of reading area */
+.manga-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 40px;
+  background: linear-gradient(90deg,
+    rgba(0,0,0,0.12) 0%,
+    rgba(0,0,0,0.06) 40%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
+.manga-content::-webkit-scrollbar { width: 5px; }
 .manga-content::-webkit-scrollbar-thumb {
-	background-color: #ccc;
-	border-radius: 3px;
+  background: rgba(120, 90, 50, 0.35);
+  border-radius: 3px;
 }
 
+/* ── Animations ────────────────────────────────────────────── */
 @keyframes float {
-	0% { transform: translateY(0px); }
-	50% { transform: translateY(-5px); }
-	100% { transform: translateY(0px); }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
+.animate-float { animation: float 5s ease-in-out infinite; }
 
-.animate-float {
-	animation: float 6s ease-in-out infinite;
-}
-
+/* ── Font manga ────────────────────────────────────────────── */
 .font-manga {
-	font-family: 'Bebas Neue', sans-serif;
-	letter-spacing: 2px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
 }
 
-/* ── Timeline expérience ─────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   CONTENT COMPONENTS (timeline, cards, skills)
+   ═══════════════════════════════════════════════════════════ */
+
 .tl-entry {
-	position: relative;
-	padding-left: 1.25rem;
-	border-left: 2px solid #d1d5db;
+  position: relative;
+  padding-left: 1.25rem;
+  border-left: 2px solid #d1d5db;
 }
 .tl-entry::before {
-	content: '';
-	position: absolute;
-	left: -5px;
-	top: 6px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: currentColor;
-	border: 2px solid #FDFBF7;
+  content: '';
+  position: absolute;
+  left: -5px; top: 6px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  border: 2px solid #FAF5EC;
 }
 .tl-upcoming { border-left-color: #f59e0b; color: #f59e0b; }
-.tl-current  { border-left-color: #111827; color: #111827; }
+.tl-current  { border-left-color: #1f2937; color: #1f2937; }
 .tl-past     { border-left-color: #9ca3af; color: #9ca3af; }
 
-/* ── Badges statut ───────────────────────────────────────── */
 .badge-upcoming {
-	display: inline-block;
-	background: #fef3c7;
-	color: #92400e;
-	border: 1px solid #f59e0b;
-	padding: 1px 8px;
-	font-size: 10px;
-	font-weight: 700;
-	letter-spacing: .1em;
-	text-transform: uppercase;
+  display: inline-block;
+  background: #fef3c7; color: #92400e;
+  border: 1px solid #f59e0b;
+  padding: 1px 8px; font-size: 10px;
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
 }
 .badge-current {
-	display: inline-block;
-	background: #111;
-	color: #fff;
-	padding: 1px 8px;
-	font-size: 10px;
-	font-weight: 700;
-	letter-spacing: .1em;
-	text-transform: uppercase;
+  display: inline-block;
+  background: #111; color: #fff;
+  padding: 1px 8px; font-size: 10px;
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
 }
 .badge-past {
-	display: inline-block;
-	background: #f3f4f6;
-	color: #6b7280;
-	padding: 1px 8px;
-	font-size: 10px;
-	font-weight: 700;
-	letter-spacing: .1em;
-	text-transform: uppercase;
+  display: inline-block;
+  background: #f3f4f6; color: #6b7280;
+  padding: 1px 8px; font-size: 10px;
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
 }
 
-/* ── Cartes projet ───────────────────────────────────────── */
 .project-card {
-	border: 2px solid #111;
-	transition: transform .2s ease, box-shadow .2s ease;
-	background: #fff;
+  border: 2px solid #111;
+  transition: transform .2s ease, box-shadow .2s ease;
+  background: #fff;
 }
 .project-card:hover {
-	transform: translateY(-4px);
-	box-shadow: 4px 4px 0 #111;
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 0 #111;
 }
-.project-card-stripe {
-	height: 4px;
-	width: 100%;
-}
+.project-card-stripe { height: 4px; width: 100%; }
 
-/* ── Skill pills ─────────────────────────────────────────── */
 .skill-pill {
-	display: inline-block;
-	padding: 2px 10px;
-	font-size: 11px;
-	font-weight: 700;
-	border: 1.5px solid currentColor;
-	margin: 2px;
-	font-family: 'Bebas Neue', sans-serif;
-	letter-spacing: .08em;
+  display: inline-block;
+  padding: 2px 10px; font-size: 11px; font-weight: 700;
+  border: 1.5px solid currentColor; margin: 2px;
+  font-family: 'Bebas Neue', sans-serif; letter-spacing: .08em;
 }
 
-/* ── Catégorie skill ─────────────────────────────────────── */
 .skill-cat-label {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	font-size: 11px;
-	font-weight: 700;
-	letter-spacing: .12em;
-	text-transform: uppercase;
-	margin-bottom: 6px;
-	margin-top: 14px;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  margin-bottom: 6px; margin-top: 14px;
 }
 .skill-cat-label::after {
-	content: '';
-	flex: 1;
-	height: 1px;
-	background: currentColor;
-	opacity: .25;
+  content: ''; flex: 1; height: 1px;
+  background: currentColor; opacity: .25;
 }

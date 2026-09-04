@@ -1,0 +1,4 @@
+node_modules/
+*.json.bak
+.env
+service-account*.json

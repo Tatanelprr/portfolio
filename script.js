@@ -1,3 +1,39 @@
+// --- 0. Firebase config & Firestore fetch ---
+import { initializeApp }              from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, collection,
+         getDocs }                    from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey:            "AIzaSyBsX6XgO3KKsH-wSjapn5ddTEW0D9bpA98",
+  authDomain:        "portfolio-ethan-b11f8.firebaseapp.com",
+  projectId:         "portfolio-ethan-b11f8",
+  storageBucket:     "portfolio-ethan-b11f8.firebasestorage.app",
+  messagingSenderId: "143712203466",
+  appId:             "1:143712203466:web:6e3ebf0c5703231d907a33"
+};
+
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+
+const CACHE_KEY = 'portfolio_library';
+const CACHE_TTL = 1000 * 60 * 60; // 1 h
+
+async function loadLibrary() {
+  // 1. Try cache
+  try {
+    const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.data;
+  } catch (_) {}
+
+  // 2. Fetch from Firestore
+  const snap = await getDocs(collection(db, 'portfolio'));
+  const data = {};
+  snap.forEach(doc => { data[doc.id] = doc.data(); });
+
+  localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+  return data;
+}
+
 // --- 1. Dictionnaire des textes statiques (HTML) ---
 const staticTranslations = {
 	fr: {
@@ -24,8 +60,10 @@ const staticTranslations = {
 	}
 };
 
-// --- 2. Données de la modale (Dynamique) ---
-const libraryData = {
+// --- 2. Données de la modale — chargées depuis Firestore ---
+let libraryData = {}; // populated after fetch
+
+const _fallbackData = {
 	'about': {
 		icon: "fa-chess-rook",
 		color: "text-orange-600",
@@ -612,7 +650,7 @@ function updateStaticContent() {
 	});
 }
 
-function openBook(key, isRefresh = false) {
+window.openBook = function openBook(key, isRefresh = false) {
 	currentBook = key;
 	const data = libraryData[key];
 	if (!data) return;
@@ -638,7 +676,7 @@ function openBook(key, isRefresh = false) {
 	}
 }
 
-function closeBook() {
+window.closeBook = function closeBook() {
 	modal.classList.add('opacity-0');
 	modalContent.classList.remove('scale-100');
 	modalContent.classList.add('scale-95');
@@ -656,4 +694,14 @@ document.addEventListener('keydown', (e) => {
 	if (e.key === "Escape") closeBook();
 });
 
+// --- Init : fetch Firestore then boot ---
 updateStaticContent();
+
+loadLibrary()
+  .then(data => {
+    libraryData = data;
+  })
+  .catch(() => {
+    // Firestore unreachable — silent fallback to empty (books just won't open)
+    console.warn('Could not load library data from Firestore.');
+  });
