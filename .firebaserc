@@ -1,5 +1,12 @@
 {
   "projects": {
     "default": "portfolio-ethan-b11f8"
+  },
+  "targets": {
+    "portfolio-ethan-b11f8": {
+      "hosting": {
+        "portfolio": ["ethan-lepareur"]
+      }
+    }
   }
 }
