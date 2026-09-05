@@ -652,8 +652,29 @@ function updateStaticContent() {
 
 window.openBook = function openBook(key, isRefresh = false) {
 	currentBook = key;
+
+	if (!isRefresh) {
+		modal.classList.remove('hidden');
+		setTimeout(() => {
+			modal.classList.remove('opacity-0');
+			modalContent.classList.remove('scale-95');
+			modalContent.classList.add('scale-100');
+		}, 50);
+	}
+
 	const data = libraryData[key];
-	if (!data) return;
+	if (!data) {
+		dynamicContent.innerHTML = `
+			<div class="flex flex-col items-center justify-center h-40 gap-4 text-gray-400">
+				<div class="w-8 h-8 border-2 border-gray-300 border-t-orange-500 rounded-full animate-spin"></div>
+				<span class="text-sm font-mono tracking-widest uppercase">Chargement...</span>
+			</div>`;
+		loadLibrary().then(d => {
+			libraryData = d;
+			if (libraryData[key]) openBook(key, true);
+		});
+		return;
+	}
 
 	const langData = data[currentLang];
 	dynamicContent.innerHTML = langData.content;
@@ -664,15 +685,6 @@ window.openBook = function openBook(key, isRefresh = false) {
 	if (!isRefresh) {
 		modalIcon.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
 		modalIcon.className = `text-8xl mb-6 animate-float ${data.color}`;
-	}
-
-	if (!isRefresh) {
-		modal.classList.remove('hidden');
-		setTimeout(() => {
-			modal.classList.remove('opacity-0');
-			modalContent.classList.remove('scale-95');
-			modalContent.classList.add('scale-100');
-		}, 50);
 	}
 }
 
