@@ -14,7 +14,7 @@
 	<link rel="icon" type="image/png" href="/favicon.png">
 	<link rel="apple-touch-icon" href="/favicon.png">
 
-	<!-- Open Graph (LinkedIn, Facebook, Slack) -->
+	<!-- Open Graph -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://ethan-lepareur.web.app">
 	<meta property="og:title" content="Ethan Lepareur — Développeur Fullstack">
@@ -23,14 +23,12 @@
 	<meta property="og:image" content="https://ethan-lepareur.web.app/og.png">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
-	<meta name="twitter:image" content="https://ethan-lepareur.web.app/og.png">
-
-	<!-- Twitter / X card -->
-	<meta name="twitter:card" content="summary">
+	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Ethan Lepareur — Développeur Fullstack">
 	<meta name="twitter:description" content="Portfolio d'Ethan Lepareur, développeur fullstack (React, Symfony, Laravel, Firebase).">
+	<meta name="twitter:image" content="https://ethan-lepareur.web.app/og.png">
 
-	<!-- JSON-LD structured data -->
+	<!-- JSON-LD -->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
@@ -46,6 +44,7 @@
 		"knowsAbout": ["React", "Vite", "Next.js", "Symfony", "Laravel", "Firebase", "Docker", "GitHub Actions"]
 	}
 	</script>
+
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,13 +52,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body class="min-h-screen flex flex-col items-center selection:bg-orange-900/40 selection:text-orange-200">
+<body class="min-h-screen flex flex-col items-center overflow-x-hidden selection:bg-orange-900/40 selection:text-orange-200">
 
-	<!-- ── Library atmosphere (fixed, non-interactive) ──────── -->
+	<!-- ── Library atmosphere ────────────────────────────────── -->
 	<div class="library-atmo" aria-hidden="true">
 		<div class="lamp-beam"></div>
 		<div class="vignette"></div>
-		<!-- Dust motes -->
 		<div class="dust" style="--x:18%;--top:85%;--dur:11s;--delay:0s;  --dx:14px; --dx2:-6px; --size:1.5px"></div>
 		<div class="dust" style="--x:32%;--top:75%;--dur:14s;--delay:2.5s;--dx:-10px;--dx2:8px;  --size:2px"></div>
 		<div class="dust" style="--x:48%;--top:90%;--dur:9s; --delay:1s;  --dx:8px;  --dx2:-12px;--size:1px"></div>
@@ -71,159 +69,159 @@
 	</div>
 
 	<!-- ── Header ───────────────────────────────────────────── -->
-	<header class="mt-12 mb-8 text-center z-10 relative w-full max-w-5xl px-4">
-		<div class="absolute top-0 right-4 md:right-0 z-50">
+	<header class="mt-8 md:mt-12 mb-6 md:mb-8 text-center z-10 relative w-full max-w-5xl px-4">
+		<div class="absolute top-0 right-2 md:right-0 z-50">
 			<label class="relative inline-flex items-center cursor-pointer group">
 				<input type="checkbox" id="lang-toggle" class="sr-only peer">
-				<div class="w-14 h-7 bg-[#2a1505] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#c49a4a] after:border-[#6a3a10] after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-orange-900 border-2 border-[#4a2a08] shadow-[2px_2px_0px_rgba(0,0,0,0.8)]"></div>
-				<span class="ml-3 text-sm font-bold font-manga tracking-widest lang-label-dark group-hover:text-[#c49a4a] transition-colors" id="lang-label">FR</span>
+				<div class="w-12 h-6 md:w-14 md:h-7 bg-[#2a1505] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#c49a4a] after:border-[#6a3a10] after:border after:rounded-full after:h-5 after:w-5 md:after:h-6 md:after:w-6 after:transition-all peer-checked:bg-orange-900 border-2 border-[#4a2a08] shadow-[2px_2px_0px_rgba(0,0,0,0.8)]"></div>
+				<span class="ml-2 text-xs md:text-sm font-bold font-manga tracking-widest lang-label-dark group-hover:text-[#c49a4a] transition-colors" id="lang-label">FR</span>
 			</label>
 		</div>
 
-		<div class="library-kicker inline-block px-4 py-1 text-sm font-bold mb-2 transform -rotate-1">
+		<div class="library-kicker inline-block px-3 md:px-4 py-1 text-xs md:text-sm font-bold mb-2 transform -rotate-1">
 			PORTFOLIO VOL. 2026
 		</div>
-		<h1 class="text-5xl md:text-7xl font-manga library-title drop-shadow-sm">
+		<h1 class="text-4xl sm:text-5xl md:text-7xl font-manga library-title drop-shadow-sm">
 			ETHAN LEPAREUR
 		</h1>
-		<p class="text-lg font-medium mt-2 font-serif library-quote" data-i18n="header_quote">
+		<p class="text-base md:text-lg font-medium mt-2 font-serif library-quote" data-i18n="header_quote">
 			"Le code est ma plume, l'écran est ma page."
 		</p>
 	</header>
 
 	<!-- ── Main ─────────────────────────────────────────────── -->
-	<main class="w-full max-w-5xl px-4 pb-20 flex flex-col gap-20 items-center relative z-10">
+	<main class="w-full max-w-5xl px-2 md:px-4 pb-16 md:pb-20 flex flex-col gap-12 md:gap-20 items-center relative z-10">
 
 		<!-- Shelf 1 — Portfolio volumes -->
 		<div class="shelf-container w-full relative">
 
-			<div class="absolute left-4 md:left-10 top-[-30px] h-[140%] w-8 metal-bracket flex flex-col justify-between py-4 rounded-sm z-0">
+			<div class="absolute left-1 md:left-10 top-[-25px] md:top-[-30px] h-[140%] w-5 md:w-8 metal-bracket flex flex-col justify-between py-3 md:py-4 rounded-sm z-0">
 				<div class="screw"></div><div class="screw"></div><div class="screw"></div>
 			</div>
-			<div class="absolute right-4 md:right-10 top-[-30px] h-[140%] w-8 metal-bracket flex flex-col justify-between py-4 rounded-sm z-0">
+			<div class="absolute right-1 md:right-10 top-[-25px] md:top-[-30px] h-[140%] w-5 md:w-8 metal-bracket flex flex-col justify-between py-3 md:py-4 rounded-sm z-0">
 				<div class="screw"></div><div class="screw"></div><div class="screw"></div>
 			</div>
 
-			<div class="relative z-10 flex justify-center items-end gap-2 md:gap-6 px-12 md:px-20 h-64 md:h-72">
+			<div class="relative z-10 flex justify-center items-end gap-1 md:gap-6 px-6 md:px-20 h-52 md:h-72">
 
-				<div class="manga-spine w-12 md:w-16 h-[90%] bg-[#C84B00] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#FF7D40]"
+				<div class="manga-spine w-8 md:w-16 h-[90%] bg-[#C84B00] text-white flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l border-[#FF7D40]"
 					 onclick="openBook('about')">
-					<span class="text-xs font-bold opacity-60 transform rotate-180 tracking-widest">VOL.01</span>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4" data-i18n="spine_about">NAISSANCE D'UN DEV</h2>
-					<div class="w-full px-2"><div class="barcode h-8 w-full"></div></div>
+					<span class="text-[8px] md:text-xs font-bold opacity-60 transform rotate-180 tracking-widest">VOL.01</span>
+					<h2 class="text-xs md:text-2xl font-manga tracking-widest whitespace-nowrap mt-2 md:mt-4" data-i18n="spine_about">NAISSANCE D'UN DEV</h2>
+					<div class="w-full px-1 md:px-2"><div class="barcode h-5 md:h-8 w-full"></div></div>
 				</div>
 
-				<div class="manga-spine w-12 md:w-16 h-[96%] bg-[#3E2622] text-[#F5E6C8] flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#6D4C41]"
+				<div class="manga-spine w-8 md:w-16 h-[96%] bg-[#3E2622] text-[#F5E6C8] flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l border-[#6D4C41]"
 					 onclick="openBook('experience')">
-					<span class="text-xs font-bold opacity-60 transform rotate-180 tracking-widest">VOL.02</span>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4 text-yellow-400" data-i18n="spine_exp">CHAPITRES PRO</h2>
-					<div class="w-full px-2"><div class="barcode h-8 w-full"></div></div>
+					<span class="text-[8px] md:text-xs font-bold opacity-60 transform rotate-180 tracking-widest">VOL.02</span>
+					<h2 class="text-xs md:text-2xl font-manga tracking-widest whitespace-nowrap mt-2 md:mt-4 text-yellow-400" data-i18n="spine_exp">CHAPITRES PRO</h2>
+					<div class="w-full px-1 md:px-2"><div class="barcode h-5 md:h-8 w-full"></div></div>
 				</div>
 
-				<div class="manga-spine w-14 md:w-20 h-[100%] bg-[#1B2A30] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#2E4A55]"
+				<div class="manga-spine w-10 md:w-20 h-[100%] bg-[#1B2A30] text-white flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l border-[#2E4A55]"
 					 onclick="openBook('projects')">
-					<i class="fa-solid fa-code text-lg opacity-40 mb-2 transform rotate-90"></i>
-					<h2 class="text-xl md:text-3xl font-manga tracking-widest whitespace-nowrap text-cyan-400" data-i18n="spine_projects">ARCHIVES DU CODE</h2>
-					<div class="w-full px-2"><div class="barcode h-8 w-full"></div></div>
+					<i class="fa-solid fa-code text-sm md:text-lg opacity-40 mb-1 md:mb-2 transform rotate-90"></i>
+					<h2 class="text-sm md:text-3xl font-manga tracking-widest whitespace-nowrap text-cyan-400" data-i18n="spine_projects">ARCHIVES DU CODE</h2>
+					<div class="w-full px-1 md:px-2"><div class="barcode h-5 md:h-8 w-full"></div></div>
 				</div>
 
-				<div class="manga-spine w-12 md:w-16 h-[92%] bg-[#8B1010] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#C62828]"
+				<div class="manga-spine w-8 md:w-16 h-[92%] bg-[#8B1010] text-white flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l border-[#C62828]"
 					 onclick="openBook('skills')">
-					<span class="text-xs font-bold opacity-60 transform rotate-180 tracking-widest">VOL.04</span>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap mt-4" data-i18n="spine_skills">POUVOIRS & TECH</h2>
-					<div class="w-full px-2"><div class="barcode h-8 w-full"></div></div>
+					<span class="text-[8px] md:text-xs font-bold opacity-60 transform rotate-180 tracking-widest">VOL.04</span>
+					<h2 class="text-xs md:text-2xl font-manga tracking-widest whitespace-nowrap mt-2 md:mt-4" data-i18n="spine_skills">POUVOIRS & TECH</h2>
+					<div class="w-full px-1 md:px-2"><div class="barcode h-5 md:h-8 w-full"></div></div>
 				</div>
 
-				<div class="manga-spine w-12 md:w-16 h-[88%] bg-[#005580] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#0088CC]"
+				<div class="manga-spine w-8 md:w-16 h-[88%] bg-[#005580] text-white flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l border-[#0088CC]"
 					 onclick="window.open('https://www.linkedin.com/in/ethan-lepareur-dev/', '_blank')">
-					<i class="fa-brands fa-linkedin text-xl mb-2 opacity-80 transform rotate-90"></i>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap" data-i18n="spine_social">RÉSEAU SOCIAL</h2>
-					<div class="w-full px-2"><div class="barcode h-8 w-full"></div></div>
+					<i class="fa-brands fa-linkedin text-base md:text-xl mb-1 md:mb-2 opacity-80 transform rotate-90"></i>
+					<h2 class="text-xs md:text-2xl font-manga tracking-widest whitespace-nowrap" data-i18n="spine_social">RÉSEAU SOCIAL</h2>
+					<div class="w-full px-1 md:px-2"><div class="barcode h-5 md:h-8 w-full"></div></div>
 				</div>
 
-				<div class="manga-spine w-12 md:w-16 h-[94%] bg-[#0D0D0D] text-white flex flex-col items-center justify-between py-4 rounded-sm border-l border-[#2a2a2a]"
+				<div class="manga-spine w-8 md:w-16 h-[94%] bg-[#0D0D0D] text-white flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l border-[#2a2a2a]"
 					 onclick="window.open('https://github.com/Tatanelprr', '_blank')">
-					<i class="fa-brands fa-github text-xl mb-2 opacity-80 transform rotate-90"></i>
-					<h2 class="text-lg md:text-2xl font-manga tracking-widest whitespace-nowrap">GITHUB</h2>
-					<div class="w-full px-2"><div class="barcode h-8 w-full"></div></div>
+					<i class="fa-brands fa-github text-base md:text-xl mb-1 md:mb-2 opacity-80 transform rotate-90"></i>
+					<h2 class="text-xs md:text-2xl font-manga tracking-widest whitespace-nowrap">GITHUB</h2>
+					<div class="w-full px-1 md:px-2"><div class="barcode h-5 md:h-8 w-full"></div></div>
 				</div>
 
 			</div>
 
-			<div class="h-8 w-full shelf-plank z-20 relative">
+			<div class="h-6 md:h-8 w-full shelf-plank z-20 relative">
 				<div class="shelf-shadow"></div>
 			</div>
 			<div class="floor-reflection"></div>
 		</div>
 
 		<!-- Shelf 2 — Manga favorites -->
-		<div class="shelf-container w-[90%] md:w-[78%] relative mt-2">
+		<div class="shelf-container w-[95%] md:w-[78%] relative mt-0 md:mt-2">
 
-			<div class="absolute left-4 md:left-16 top-[-50px] h-[150%] w-8 metal-bracket flex flex-col justify-between py-4 rounded-sm z-0 opacity-80">
+			<div class="absolute left-1 md:left-16 top-[-40px] md:top-[-50px] h-[150%] w-5 md:w-8 metal-bracket flex flex-col justify-between py-3 md:py-4 rounded-sm z-0 opacity-80">
 				<div class="screw"></div><div class="screw"></div><div class="screw"></div>
 			</div>
-			<div class="absolute right-4 md:right-16 top-[-50px] h-[150%] w-8 metal-bracket flex flex-col justify-between py-4 rounded-sm z-0 opacity-80">
+			<div class="absolute right-1 md:right-16 top-[-40px] md:top-[-50px] h-[150%] w-5 md:w-8 metal-bracket flex flex-col justify-between py-3 md:py-4 rounded-sm z-0 opacity-80">
 				<div class="screw"></div><div class="screw"></div><div class="screw"></div>
 			</div>
 
-			<div class="relative z-10 flex justify-center items-end gap-4 md:gap-8 px-12 h-56 md:h-64">
+			<div class="relative z-10 flex justify-center items-end gap-2 md:gap-8 px-6 md:px-12 h-44 md:h-64">
 
 				<a href="https://fr.wikipedia.org/wiki/JoJo%27s_Bizarre_Adventure" target="_blank" rel="noopener noreferrer" class="block h-[95%]">
-					<div class="manga-spine w-14 h-full bg-gradient-to-b from-yellow-500 to-yellow-700 text-purple-900 flex flex-col items-center justify-between py-4 rounded-sm border-l-2 border-yellow-400" title="Mon manga préféré pour le style artistique !">
-						<span class="text-[9px] font-bold opacity-50 transform rotate-180 tracking-wider">VOL.★</span>
-						<h2 class="text-lg font-manga tracking-wider whitespace-nowrap font-black writing-vertical-rl">JOJO'S BIZARRE ADVENTURE</h2>
-						<div class="w-full px-2"><div class="barcode h-6 w-full opacity-40"></div></div>
+					<div class="manga-spine w-10 md:w-14 h-full bg-gradient-to-b from-yellow-500 to-yellow-700 text-purple-900 flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l-2 border-yellow-400" title="Mon manga préféré pour le style artistique !">
+						<span class="text-[8px] md:text-[9px] font-bold opacity-50 transform rotate-180 tracking-wider">VOL.★</span>
+						<h2 class="text-xs md:text-lg font-manga tracking-wider whitespace-nowrap font-black writing-vertical-rl">JOJO'S BIZARRE ADVENTURE</h2>
+						<div class="w-full px-1 md:px-2"><div class="barcode h-4 md:h-6 w-full opacity-40"></div></div>
 					</div>
 				</a>
 
 				<a href="https://fr.wikipedia.org/wiki/Vinland_Saga" target="_blank" rel="noopener noreferrer" class="block h-[92%]">
-					<div class="manga-spine w-14 h-full bg-gradient-to-b from-amber-900 to-stone-950 text-amber-200 flex flex-col items-center justify-between py-4 rounded-sm border-l-2 border-amber-800" title="Une histoire de rédemption incroyable.">
-						<span class="text-[9px] font-bold opacity-50 transform rotate-180 tracking-wider">VOL.12</span>
-						<h2 class="text-base font-manga tracking-widest whitespace-nowrap writing-vertical-rl">VINLAND SAGA</h2>
-						<div class="w-full px-2"><div class="barcode h-6 w-full opacity-40"></div></div>
+					<div class="manga-spine w-10 md:w-14 h-full bg-gradient-to-b from-amber-900 to-stone-950 text-amber-200 flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l-2 border-amber-800" title="Une histoire de rédemption incroyable.">
+						<span class="text-[8px] md:text-[9px] font-bold opacity-50 transform rotate-180 tracking-wider">VOL.12</span>
+						<h2 class="text-xs md:text-base font-manga tracking-widest whitespace-nowrap writing-vertical-rl">VINLAND SAGA</h2>
+						<div class="w-full px-1 md:px-2"><div class="barcode h-4 md:h-6 w-full opacity-40"></div></div>
 					</div>
 				</a>
 
 				<a href="https://fr.wikipedia.org/wiki/Hunter_%C3%97_Hunter" target="_blank" rel="noopener noreferrer" class="block h-[90%]">
-					<div class="manga-spine w-14 h-full bg-gradient-to-b from-green-800 to-green-950 text-green-100 flex flex-col items-center justify-between py-4 rounded-sm border-l-2 border-green-700" title="Le meilleur système de magie (Nen).">
-						<span class="text-[9px] font-bold opacity-50 transform rotate-180 tracking-wider">VOL.36</span>
-						<h2 class="text-base font-manga tracking-widest whitespace-nowrap font-bold writing-vertical-rl">HUNTER X HUNTER</h2>
-						<div class="w-full px-2"><div class="barcode h-6 w-full opacity-40"></div></div>
+					<div class="manga-spine w-10 md:w-14 h-full bg-gradient-to-b from-green-800 to-green-950 text-green-100 flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l-2 border-green-700" title="Le meilleur système de magie (Nen).">
+						<span class="text-[8px] md:text-[9px] font-bold opacity-50 transform rotate-180 tracking-wider">VOL.36</span>
+						<h2 class="text-xs md:text-base font-manga tracking-widest whitespace-nowrap font-bold writing-vertical-rl">HUNTER X HUNTER</h2>
+						<div class="w-full px-1 md:px-2"><div class="barcode h-4 md:h-6 w-full opacity-40"></div></div>
 					</div>
 				</a>
 
 				<a href="https://fr.wikipedia.org/wiki/Dragon_Ball_Z" target="_blank" rel="noopener noreferrer" class="block h-[94%]">
-					<div class="manga-spine w-14 h-full bg-gradient-to-b from-orange-600 to-orange-900 text-orange-50 flex flex-col items-center justify-between py-4 rounded-sm border-l-2 border-orange-500" title="Le classique indémodable.">
-						<span class="text-[9px] font-bold opacity-50 transform rotate-180 tracking-wider">VOL.42</span>
-						<h2 class="text-lg font-manga tracking-wider whitespace-nowrap font-black writing-vertical-rl">DBZ</h2>
-						<div class="w-full px-2"><div class="barcode h-6 w-full opacity-40"></div></div>
+					<div class="manga-spine w-10 md:w-14 h-full bg-gradient-to-b from-orange-600 to-orange-900 text-orange-50 flex flex-col items-center justify-between py-3 md:py-4 rounded-sm border-l-2 border-orange-500" title="Le classique indémodable.">
+						<span class="text-[8px] md:text-[9px] font-bold opacity-50 transform rotate-180 tracking-wider">VOL.42</span>
+						<h2 class="text-xs md:text-lg font-manga tracking-wider whitespace-nowrap font-black writing-vertical-rl">DBZ</h2>
+						<div class="w-full px-1 md:px-2"><div class="barcode h-4 md:h-6 w-full opacity-40"></div></div>
 					</div>
 				</a>
 
 			</div>
 
-			<div class="h-8 w-full shelf-plank z-20 relative">
+			<div class="h-6 md:h-8 w-full shelf-plank z-20 relative">
 				<div class="shelf-shadow"></div>
 			</div>
 			<div class="floor-reflection"></div>
 		</div>
 
-		<div class="text-[#4a3520]/70 text-sm font-serif italic tracking-wide" data-i18n="footer_instruction">
+		<div class="text-[#4a3520]/70 text-xs md:text-sm font-serif italic tracking-wide" data-i18n="footer_instruction">
 			* Cliquez sur les tomes de l'étagère du haut pour lire leur contenu.
 		</div>
 
 	</main>
 
 	<!-- ── Reading modal ────────────────────────────────────── -->
-	<div id="reading-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4 opacity-0 transition-opacity duration-500">
+	<div id="reading-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-2 md:p-4 opacity-0 transition-opacity duration-500">
 
-		<div id="modal-content" class="w-full max-w-4xl h-[85vh] md:h-[80vh] rounded-r-lg shadow-2xl flex flex-col md:flex-row overflow-hidden transform scale-95 transition-transform duration-500 relative border-l-8 border-l-[#1a0a02]">
+		<div id="modal-content" class="w-full max-w-4xl h-[92vh] md:h-[80vh] rounded-r-lg shadow-2xl flex flex-col md:flex-row overflow-hidden transform scale-95 transition-transform duration-500 relative border-l-4 md:border-l-8 border-l-[#1a0a02]">
 
-			<button onclick="closeBook()" class="absolute top-4 right-4 z-50 bg-black/80 text-[#c49a4a] w-10 h-10 rounded-full hover:bg-red-900 hover:text-white transition flex items-center justify-center shadow-lg border border-[#3a2010]/50">
-				<i class="fa-solid fa-times"></i>
+			<button onclick="closeBook()" class="absolute top-3 right-3 md:top-4 md:right-4 z-50 bg-black/80 text-[#c49a4a] w-9 h-9 md:w-10 md:h-10 rounded-full hover:bg-red-900 hover:text-white transition flex items-center justify-center shadow-lg border border-[#3a2010]/50">
+				<i class="fa-solid fa-times text-sm md:text-base"></i>
 			</button>
 
-			<!-- Sidebar -->
+			<!-- Sidebar (desktop only) -->
 			<div class="manga-sidebar hidden md:flex w-1/3 text-[#c49a4a] flex-col justify-center items-center p-8 relative overflow-hidden">
 				<h3 id="modal-spine-title" class="text-5xl font-manga absolute -left-12 bottom-20 transform -rotate-90 text-[#2a1a08]/60 whitespace-nowrap">CHAPITRE 01</h3>
 				<div id="modal-icon" class="text-8xl mb-6 text-orange-500 animate-float">
@@ -234,18 +232,18 @@
 			</div>
 
 			<!-- Reading area -->
-			<div class="w-full md:w-2/3 manga-page p-8 md:p-12 overflow-y-auto manga-content relative">
+			<div class="w-full md:w-2/3 manga-page p-5 md:p-12 overflow-y-auto manga-content relative">
 
-				<div class="flex justify-between items-center border-b-2 border-gray-800 pb-4 mb-8">
-					<span id="modal-chapter" class="font-bold font-manga text-xl text-gray-500">CHAPITRE 1</span>
-					<span class="text-xs font-mono text-gray-400 tracking-widest">ETHAN_PORTFOLIO_V2025</span>
+				<div class="flex justify-between items-center border-b-2 border-gray-800 pb-3 md:pb-4 mb-6 md:mb-8">
+					<span id="modal-chapter" class="font-bold font-manga text-base md:text-xl text-gray-500">CHAPITRE 1</span>
+					<span class="text-[10px] md:text-xs font-mono text-gray-400 tracking-widest">ETHAN_PORTFOLIO_V2026</span>
 				</div>
 
-				<div id="dynamic-content" class="prose prose-lg max-w-none text-gray-800 font-serif leading-relaxed">
+				<div id="dynamic-content" class="prose prose-sm md:prose-lg max-w-none text-gray-800 font-serif leading-relaxed">
 				</div>
 
-				<div class="mt-12 pt-8 border-t border-gray-300 flex justify-between text-sm font-bold text-gray-400 uppercase tracking-widest">
-					<span class="cursor-pointer hover:text-black transition" onclick="closeBook()" data-i18n="modal_back">← Retour à l'étagère</span>
+				<div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-300 flex justify-between text-xs md:text-sm font-bold text-gray-400 uppercase tracking-widest">
+					<span class="cursor-pointer hover:text-black transition" onclick="closeBook()" data-i18n="modal_back">← Retour</span>
 					<span><span data-i18n="modal_page">Page</span> <span id="page-num">01</span></span>
 				</div>
 			</div>
